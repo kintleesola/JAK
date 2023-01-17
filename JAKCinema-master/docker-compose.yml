@@ -1,0 +1,27 @@
+version: '2'
+services:
+  db:
+    restart: on-failure:10
+    image: mariadb:10.3
+    volumes:
+      - ./docker/containers/mysql/data:/var/lib/mysql:rw
+    ports:
+      - "3306:3306"
+  redis:
+    image: redis
+  tmm:
+    build:
+      context: docker
+      dockerfile: containers/nginx.Dockerfile
+    command: ./bin/wait-for-mysql.sh db /usr/sbin/nginx
+    volumes:
+      - ./docker/bin/wait-for-mysql.sh:/bin/wait-for-mysql.sh
+      - ./src:/var/www/tmm
+    ports:
+      - "80:80"
+      - "443:443"
+    env_file:
+      - ./src/.env
+    depends_on:
+      - db
+      - redis
