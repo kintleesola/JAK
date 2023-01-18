@@ -2,9 +2,13 @@
 
 A movie management application using a REST API built with Laravel. Display with movie Choices and seats in a Cinema to select from in order to purchase tickets
 
+![Screenshot TMM](extra/media/ticket.png)
 ![Screenshot TMM](extra/media/tmm.png)
 ![Screenshot TMM](extra/media/tmm-browse.png)
 ![Screenshot TMM](extra/media/tmm-add.png)
+![Screenshot TMM](extra/media/sticket.png)
+![Screenshot TMM](extra/media/socticket.png)
+![Screenshot TMM](extra/media/twticket.png)
 
 ## Dependencies
 
